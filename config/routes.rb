@@ -1,4 +1,5 @@
 DriverApp::Application.routes.draw do
+  devise_for :users
   root  'main_pages#home'
   match '/help', to: 'main_pages#help', via: 'get'
   match '/language', to: 'main_pages#language', via: 'get' 
