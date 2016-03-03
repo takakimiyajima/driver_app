@@ -4,6 +4,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.5'
 gem 'bootstrap-sass', '3.3.1'
 gem 'sprockets', '2.12.4'
+gem 'devise', '3.4.1'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
