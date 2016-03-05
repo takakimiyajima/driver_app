@@ -1,10 +1,14 @@
 DriverApp::Application.routes.draw do
+  get "users/show"
   devise_for :users
+  resources :users, only: [:show]
+  
   root  'main_pages#home'
   match '/help', to: 'main_pages#help', via: 'get'
   match '/language', to: 'main_pages#language', via: 'get' 
   match '/about', to: 'main_pages#about', via: 'get'
   match '/contact', to: 'main_pages#contact', via: 'get'
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
