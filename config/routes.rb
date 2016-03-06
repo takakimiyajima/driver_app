@@ -2,7 +2,7 @@ DriverApp::Application.routes.draw do
   devise_for :users, :controllers => {
     :registrations => "registrations"
   }
-  resources :users, only: [:show, :index]
+  resources :users, only: [:show, :index, :destroy]
   
   root  'main_pages#home'
   match '/help', to: 'main_pages#help', via: 'get'
