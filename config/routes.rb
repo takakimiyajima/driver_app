@@ -3,6 +3,7 @@ DriverApp::Application.routes.draw do
     :registrations => "registrations"
   }
   resources :users, only: [:show, :index, :destroy]
+  resources :microposts, only: [:create, :destroy]
   
   root  'main_pages#home'
   match '/help', to: 'main_pages#help', via: 'get'
