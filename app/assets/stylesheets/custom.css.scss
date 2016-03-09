@@ -60,7 +60,11 @@ p {
 }
 
 
-
+/*　ログインしていない状況での角島背景    */
+#pic {
+    /* 画像を常に天地左右の中央に配置 */
+  background-position: center center;
+}
 
 
 /* header */
@@ -69,7 +73,7 @@ p {
   float: left;
   margin-right: 10px;
   font-size: 1.7em;
-  color: #fff;
+  color: #fff ;
   text-transform: uppercase;
   letter-spacing: -1px;
   padding-top: 12px;
@@ -77,8 +81,15 @@ p {
   line-height: 1;
 }
 
+
+
+.navbar-inverse {
+  background-color: rgba(0,200,0,0.4);
+  color: black ;
+}
+
 #logo:hover {
-  color: #fff;
+  color: #008080;
   text-decoration: none;
 }
 

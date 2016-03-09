@@ -18,11 +18,11 @@
   </div>
 <% else %>
 
-
-<div class="center jumbotron">
-  <h1>どこ行く？</h1>
-
-  <%= link_to "Sign up now!", new_user_registration_path , class: "btn btn-lg btn-primary" %>
-</div>
+  <body id= "pic"  style="background-image:url(<%= asset_path "tsuno.jpg" %>)" />
+    <h1>どこ行く？</h1>
+  
+    <%= link_to "Sign up now!", new_user_registration_path , class: "btn btn-lg btn-primary" %>
+    
+  </body>
 
 <% end %>
