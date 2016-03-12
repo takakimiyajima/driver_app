@@ -18,7 +18,10 @@
   </div>
 <% else %>
 
-  <body id= "pic"  style="background-image:url(<%= asset_path "tsuno.jpg" %>)" />
+  <body class= "slideshow">
+      <img src="<%= asset_path "tsuno.jpg" %>" />
+      <img src="<%= asset_path "road1.jpg" %>" />
+  
     <h1>どこ行く？</h1>
   
     <%= link_to "Sign up now!", new_user_registration_path , class: "btn btn-lg btn-primary" %>

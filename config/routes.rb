@@ -1,9 +1,19 @@
 DriverApp::Application.routes.draw do
+
+
+  get "driver_post/index"
+  get "driver_post/show"
+  get "driver_post/destroy"
   devise_for :users, :controllers => {
     :registrations => "registrations"
   }
   resources :users, only: [:show, :index, :destroy]
   resources :microposts, only: [:create, :destroy]
+  resources :driver_post, only: [:show, :index, :destroy]
+  
+  resources :topics, :except => [:edit, :update] do
+    resources :posts, :only => [:create, :destroy]
+  end
   
   root  'main_pages#home'
   match '/help', to: 'main_pages#help', via: 'get'

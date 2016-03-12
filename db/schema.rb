@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160306071243) do
+ActiveRecord::Schema.define(version: 20160312144655) do
+
+  create_table "driver_posts", force: true do |t|
+    t.string   "origin"
+    t.string   "destination"
+    t.date     "departure_date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "microposts", force: true do |t|
     t.string   "content"
@@ -21,6 +29,21 @@ ActiveRecord::Schema.define(version: 20160306071243) do
   end
 
   add_index "microposts", ["user_id", "created_at"], name: "index_microposts_on_user_id_and_created_at"
+
+  create_table "posts", force: true do |t|
+    t.text     "contributor"
+    t.text     "content"
+    t.integer  "post_number"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "topic_id"
+  end
+
+  create_table "topics", force: true do |t|
+    t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "",    null: false
@@ -37,6 +60,7 @@ ActiveRecord::Schema.define(version: 20160306071243) do
     t.datetime "updated_at"
     t.string   "name"
     t.boolean  "admin",                  default: false
+    t.string   "nickname"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
