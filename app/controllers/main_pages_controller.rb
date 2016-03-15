@@ -1,8 +1,7 @@
 class MainPagesController < ApplicationController
   def home
     if signed_in?
-      @micropost  = current_user.microposts.build
-      @feed_items = current_user.feed.paginate(page: params[:page])
+      @driver_post  = current_user.driver_posts.build
     end
   end
 

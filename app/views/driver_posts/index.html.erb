@@ -1,0 +1,11 @@
+<% provide(:title, 'Registered Drivers') %>
+<h1>Registered Drivers</h1>
+
+
+<ul class="driver_posts">
+   <% @driver_posts.each do |driver_post| %>
+   <li><%= link_to driver_post.origin, driver_post %></li>
+   <li><%= link_to driver_post.destination, driver_post %></li>
+   <li><%= link_to driver_post.departure_date, driver_post %></li>
+   <% end %>
+</ul>

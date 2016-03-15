@@ -5,22 +5,24 @@
       <section>
         <%= render 'shared/user_info' %>
       </section>
+      
       <section>
-        <%= render 'shared/micropost_form' %>
+      　　<%= render 'shared/driver_post_form' %>
       </section>
+
     </aside>
     
     <div class="col-md-8">
-      <h3>Micropost Feed</h3>
-      <%= render 'shared/feed' %>
+      <h3>Driver</h3>
+      
+    <!-- ここに登録されたDriverの一覧が表示される　-->
+    
     </div>
     
   </div>
 <% else %>
 
-  <body class= "slideshow">
-      <img src="<%= asset_path "tsuno.jpg" %>" />
-      <img src="<%= asset_path "road1.jpg" %>" />
+  <body style="background-image:url(<%= asset_path "tsuno.jpg" %>)" />
   
     <h1>どこ行く？</h1>
   

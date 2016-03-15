@@ -1,15 +1,11 @@
 DriverApp::Application.routes.draw do
 
 
-  get "driver_post/index"
-  get "driver_post/show"
-  get "driver_post/destroy"
   devise_for :users, :controllers => {
     :registrations => "registrations"
   }
   resources :users, only: [:show, :index, :destroy]
-  resources :microposts, only: [:create, :destroy]
-  resources :driver_post, only: [:show, :index, :destroy]
+  resources :driver_posts, only: [:show, :index, :destroy, :create]
   
   resources :topics, :except => [:edit, :update] do
     resources :posts, :only => [:create, :destroy]
