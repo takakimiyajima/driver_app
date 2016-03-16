@@ -1,24 +1,14 @@
-<% provide(:title, @user.name) %>
-<div class="row">
-  <aside class="col-md-4">
-    <section>
-      <h1>
-        <%= gravatar_for @user %>
-        <%= @user.name %>
-      </h1>
-    </section>
-  </aside>
-  
-  <div class="col-md-8">
-    <div class="row">
-      </div>
+<% provide(:title, 'Detail') %>
+<h1>Detail</h1>
+
+
+<ul class="driver_post">
+   <p>出発地 目的地 出発日時</p>
+    <%= @driver_post.origin %>
+    <%= @driver_post.destination %>
+    <%= @driver_post.departure_date %>
+</ul>
+
+    <div>
+      <%= link_to "交渉開始", class: "btn btn-lg btn-primary" %>
     </div>
-    <% if @user.driver_posts.any? %>
-      <h3>DriverPosts (<%= @user.driver_posts.count %>)</h3>
-      <ol class="driver_posts">
-        <%= render @driver_post %>
-      </ol>
-      <%= will_paginate @driver_post, renderer: BootstrapPagination::Rails %>
-    <% end %>
-  </div>
-</div>

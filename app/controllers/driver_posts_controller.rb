@@ -17,8 +17,8 @@ class DriverPostsController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
-    @driver_posts = @user.driver_posts.paginate(page: params[:page])
+    #@user = User.find(params[:id])
+    @driver_post = DriverPost.find(params[:id])
   end
 
   def destroy
