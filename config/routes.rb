@@ -7,9 +7,8 @@ DriverApp::Application.routes.draw do
   resources :users, only: [:show, :index, :destroy]
   resources :driver_posts, only: [:show, :index, :destroy, :create]
   
-  resources :topics, :except => [:edit, :update] do
-    resources :posts, :only => [:create, :destroy]
-  end
+  resources :negotiations
+  resources :posts, :only => [:create, :destroy, :new]
   
   root  'main_pages#home'
   match '/help', to: 'main_pages#help', via: 'get'

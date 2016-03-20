@@ -2,6 +2,14 @@
 
 one:
   title: MyString
+  nego_id: 1
+  driver_post_id: 1
+  driver_id: 1
+  hiker_id: 1
 
 two:
   title: MyString
+  nego_id: 1
+  driver_post_id: 1
+  driver_id: 1
+  hiker_id: 1

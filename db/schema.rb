@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160313135512) do
+ActiveRecord::Schema.define(version: 20160319071017) do
 
   create_table "driver_posts", force: true do |t|
     t.string   "origin"
@@ -20,6 +20,15 @@ ActiveRecord::Schema.define(version: 20160313135512) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+  end
+
+  create_table "negotiations", force: true do |t|
+    t.string   "title"
+    t.integer  "driver_post_id"
+    t.integer  "driver_id"
+    t.integer  "hiker_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "posts", force: true do |t|

@@ -13,20 +13,31 @@ class DriverPostsController < ApplicationController
   end
   
   def index
-      @driver_posts = DriverPost.all
+    @driver_posts = DriverPost.all
   end
 
   def show
-    #@user = User.find(params[:id])
     @driver_post = DriverPost.find(params[:id])
+    session[:origin] = @driver_post.origin
+    session[:destination] = @driver_post.destination
+    session[:departure_date] = @driver_post.departure_date
+    session[:driver_post_id] = @driver_post.id
+    session[:driver_id] = @driver_post.user_id
   end
 
   def destroy
+    @driver_post.destroy
+    redirect_to root_url
   end
   
     private
-
+    
     def driver_post_params
       params.require(:driver_post).permit(:origin, :destination, :departure_date, :user_id)
+    end
+    
+    def correct_user
+      @driver_post = current_user.driver_posts.find_by(id: params[:id])
+      redirect_to root_url if @driver_post.nil?
     end
 end

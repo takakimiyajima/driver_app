@@ -21,20 +21,20 @@ class PostsController < ApplicationController
   end
 
   def create
-    @topic = Topic.find(params[:topic_id])
-    @post = @topic.posts.build(post_params)
-     max_num = @topic.posts.maximum(:post_number)
+    #@negotiation = Negotiation.find(params[:nego_id])
+    @post = @negotiation.posts.build(post_params)
+     max_num = @negotiation.posts.maximum(:post_number)
      max_num = 0 if max_num.blank?
      @post.post_number = max_num + 1
 
   respond_to do |format|
       if @post.save
-        format.html { redirect_to @topic, notice: '投稿されました。' }
-        format.json { render json: @post, status: :created, location: @topic }
+        format.html { redirect_to @negotiation, notice: '投稿されました。' }
+        format.json { render json: @post, status: :created, location: @negotiation }
       else
-        @topic = Topic.find(params[:topic_id])
-        @posts = @topic.posts
-        format.html { render "topics/show" }
+        @negotiation = Negotiation.find(params[:nego_id])
+        @posts = @negotiation.posts
+        format.html { render "negotiations/show" }
         format.json { render json: @post.errors, status: :unprocessable_entity }
       end
     end
@@ -43,12 +43,12 @@ class PostsController < ApplicationController
   # DELETE /posts/1
   # DELETE /posts/1.json
   def destroy
-    @topic = Topic.find(params[:topic_id])
+    @negotiation = Negotiation.find(params[:nego_id])
     @post = Post.find(params[:id])
     @post.destroy
 
     respond_to do |format|
-      format.html { redirect_to @topic }
+      format.html { redirect_to @negotiation }
       format.json { head :no_content }
     end
   end
@@ -59,6 +59,6 @@ class PostsController < ApplicationController
     end
 
     def post_params
-      params.require(:post).permit(:contributor, :content, :post_number)
+      params.require(:post).permit(:contributor, :content)
     end
 end
