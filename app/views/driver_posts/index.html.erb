@@ -6,11 +6,16 @@
    <p>出発地 目的地 出発日時</p>
    <% @driver_posts.each do |driver_post| %>
    <li>
-    <%= link_to driver_post.origin, driver_post %> <%= link_to driver_post.destination, driver_post %> <%= link_to driver_post.departure_date, driver_post %>
+    <%= link_to driver_post.origin, driver_post %>
+    <%= link_to driver_post.destination, driver_post %>
+    <%= link_to driver_post.departure_date, driver_post %>
+   　 
    　 <% if current_user == driver_post.user %>
       <%= link_to "削除", driver_post, method: :delete,
                                   data: { confirm: "You sure?" } %>
       <% end %>
-    <% end %></li>
+      
+    <% end %>
+    </li>
 
 </ul>
