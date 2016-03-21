@@ -9,6 +9,9 @@ class PostsController < ApplicationController
   end
 
   def show
+    @negotiation = Negotiation.find(params[:id])
+    @post = @negotiation.posts.build(post_params)
+    @posts = @negotiation.posts
     respond_with(@post)
   end
 
@@ -21,18 +24,16 @@ class PostsController < ApplicationController
   end
 
   def create
-    #@negotiation = Negotiation.find(params[:nego_id])
-    @post = @negotiation.posts.build(post_params)
-     max_num = @negotiation.posts.maximum(:post_number)
-     max_num = 0 if max_num.blank?
-     @post.post_number = max_num + 1
+     @negotiation = Negotiation.find(session[:negotiation_id])
+     @post = @negotiation.posts.build(post_params)
+     @post.user_id = current_user.id
 
   respond_to do |format|
       if @post.save
         format.html { redirect_to @negotiation, notice: '投稿されました。' }
         format.json { render json: @post, status: :created, location: @negotiation }
       else
-        @negotiation = Negotiation.find(params[:nego_id])
+        @negotiation = Negotiation.find(session[:negotiation_id])
         @posts = @negotiation.posts
         format.html { render "negotiations/show" }
         format.json { render json: @post.errors, status: :unprocessable_entity }
@@ -59,6 +60,6 @@ class PostsController < ApplicationController
     end
 
     def post_params
-      params.require(:post).permit(:contributor, :content)
+      params.require(:post).permit(:content, :negotiation_id)
     end
 end

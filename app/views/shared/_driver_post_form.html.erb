@@ -3,7 +3,11 @@
   <div class="field">
     <%= f.text_field :origin, placeholder: "出発地入れてください" %><br/>
     <%= f.text_field :destination, placeholder: "目的地を入れてください" %><br/>
-    <%= f.text_field :departure_date, class: 'datepicker' %><br/>
-    
-  <%= f.submit "Post", class: "btn btn-lg btn-primary" %>
+  </div>
+  
+  <div class="glyphicon glyphicon-calendar">
+    <%= f.text_field :departure_date, class: "datepicker" %><br/>
+  </div> 
+  
+    <%= f.submit "Post", class: "btn btn-lg btn-primary" %>
 <% end %>

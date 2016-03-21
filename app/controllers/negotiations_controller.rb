@@ -9,6 +9,9 @@ class NegotiationsController < ApplicationController
 
  def show
      @negotiation = Negotiation.find(params[:id])
+     session[:negotiation_id] = @negotiation.id
+     @posts = @negotiation.posts
+     @post = Post.new
  end
  
  def new

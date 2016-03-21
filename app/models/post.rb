@@ -1,7 +1,7 @@
 class Post < ActiveRecord::Base
     belongs_to :negotiation
     
-    validates_presence_of :contributor
-    validates_presence_of :content
+    validates :content, presence: true
     validates :user_id, presence: true
+    validates :negotiation_id, presence: true
 end
