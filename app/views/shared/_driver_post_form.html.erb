@@ -5,8 +5,11 @@
     <%= f.text_field :destination, placeholder: "目的地を入れてください" %><br/>
   </div>
   
-  <div class="glyphicon glyphicon-calendar">
-    <%= f.text_field :departure_date, class: "datepicker" %><br/>
+  <div class='input-group date datepicker'>
+    <%= f.text_field :departure_date, class: 'form-control'%>
+      <span class="input-group-addon">
+         <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+      </span>
   </div> 
   
     <%= f.submit "Post", class: "btn btn-lg btn-primary" %>
