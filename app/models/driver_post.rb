@@ -4,6 +4,7 @@ class DriverPost < ActiveRecord::Base
     validates :origin, presence: true, length: { maximum: 30 }
     validates :destination, presence: true, length: { maximum: 30 }
     validates :departure_date, presence: true, length: { maximum: 30 }
+    validates :content, presence: true, length: { maximum: 200 }
     validates :user_id, presence: true
     
   def feed

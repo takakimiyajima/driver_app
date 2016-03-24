@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160321125640) do
+ActiveRecord::Schema.define(version: 20160324063843) do
 
   create_table "driver_posts", force: true do |t|
     t.string   "origin"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20160321125640) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+    t.string   "content"
   end
 
   create_table "negotiations", force: true do |t|

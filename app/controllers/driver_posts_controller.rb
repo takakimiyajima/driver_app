@@ -27,6 +27,7 @@ class DriverPostsController < ApplicationController
     session[:origin] = @driver_post.origin
     session[:destination] = @driver_post.destination
     session[:departure_date] = @driver_post.departure_date
+    #session[:content] = @driver_post.content
     session[:driver_post_id] = @driver_post.id
     session[:driver_id] = @driver_post.user_id
   end
@@ -39,7 +40,7 @@ class DriverPostsController < ApplicationController
     private
     
     def driver_post_params
-      params.require(:driver_post).permit(:origin, :destination, :departure_date, :user_id)
+      params.require(:driver_post).permit(:origin, :destination, :departure_date, :content, :user_id)
     end
     
     def correct_user
