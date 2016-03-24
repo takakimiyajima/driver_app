@@ -1,8 +1,8 @@
 class MainPagesController < ApplicationController
+  
   def home
-    if signed_in?
-      @driver_post = current_user.driver_posts.build
-    end
+     @negotiations = current_user.negotiations_of_driver
+     @negotiations.concat(current_user.negotiations_of_hiker)
   end
 
   def help

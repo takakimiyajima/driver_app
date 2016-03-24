@@ -1,5 +1,45 @@
-<h1></h1>
-
-<%= render 'posts/form' %>
-
-<%= link_to 'Back', :back %>
+<div class="row">
+  <aside class="col-md-4">
+    <%= form_for(@post) do |f| %>
+    <% if @post.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+        <ul>
+        <% @post.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+    
+    <div class="field">
+      <%= f.label :content %><br>
+      <%= f.text_area :content %>
+    </div>
+  
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+    
+    <%= link_to 'Back', :back %>
+   <% end %>
+  </aside>
+  
+  
+  <div class="col-md-8">
+      <div id="post-list">
+      <% @posts.each do |post| %>
+        <div class="post">
+          <span>
+          <%= link_to gravatar_for(current_user), current_user, size: 10 %> <%= link_to User.find(post.user_id).nickname, current_user %>
+          </span>
+          <div class="post-body">
+            <%= post.content %>
+          </div>
+          <div class="post-footer">
+            <%= link_to '削除', negotiation_path, method: :delete, data: { confirm: '本当によろしいですか？' } %>
+          </div>
+        </div>
+      <% end %>
+      </div>
+  </div>

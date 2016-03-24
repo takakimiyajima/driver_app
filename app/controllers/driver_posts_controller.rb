@@ -2,6 +2,12 @@ class DriverPostsController < ApplicationController
   before_action :authenticate_user!
   before_action :correct_user,   only: :destroy
   
+  
+  def new
+      @driver_post = current_user.driver_posts.build  if signed_in?
+  end
+  
+  
   def create
     @driver_post = current_user.driver_posts.build(driver_post_params)
     if @driver_post.save

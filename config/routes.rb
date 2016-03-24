@@ -5,10 +5,10 @@ DriverApp::Application.routes.draw do
     :registrations => "registrations"
   }
   resources :users, only: [:show, :index, :destroy]
-  resources :driver_posts, only: [:show, :index, :destroy, :create]
+  resources :driver_posts, only: [:show, :index, :destroy, :create, :new]
   
   resources :negotiations 
-  resources :posts, :only => [:create, :destroy, :new, :show]
+  resources :posts, :only => [:create, :destroy]
   
   root  'main_pages#home'
   match '/help', to: 'main_pages#help', via: 'get'

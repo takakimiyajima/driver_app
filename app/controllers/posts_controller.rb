@@ -1,23 +1,17 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
+  #before_action :set_post, only: [:show, :update, :destroy]
+  before_action :authenticate_user!
+  before_action :correct_user,   only: :destroy
 
   respond_to :html
 
   def index
-    @posts = Post.all
-    respond_with(@posts)
   end
 
   def show
-    @negotiation = Negotiation.find(params[:id])
-    @post = @negotiation.posts.build(post_params)
-    @posts = @negotiation.posts
-    respond_with(@post)
   end
 
   def new
-    @post = Post.new
-    respond_with(@post)
   end
 
   def edit
@@ -44,22 +38,21 @@ class PostsController < ApplicationController
   # DELETE /posts/1
   # DELETE /posts/1.json
   def destroy
-    @negotiation = Negotiation.find(params[:nego_id])
-    @post = Post.find(params[:id])
-    @post.destroy
+     @negotiation = Negotiation.find(session[:negotiation_id])
+     @post = Post.find(params[:id])
+     @post.destroy
+     redirect_to '/negotiations/'+@negotiation.id.to_s
 
-    respond_to do |format|
-      format.html { redirect_to @negotiation }
-      format.json { head :no_content }
-    end
   end
 
   private
-    def set_post
-      @post = Post.find(params[:id])
-    end
 
     def post_params
       params.require(:post).permit(:content, :negotiation_id)
+    end
+    
+    def correct_user
+      @post = Post.find_by(id: params[:id])
+     # redirect_to root_url if @post.nil?
     end
 end

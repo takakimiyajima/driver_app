@@ -98,23 +98,24 @@ p {
   float: left;
   margin-right: 10px;
   font-size: 1.7em;
-  color: #fff ;
+  color: #000 ;
   text-transform: uppercase;
   letter-spacing: -1px;
   padding-top: 12px;
   font-weight: bold;
   line-height: 1;
+  background-color: rgba(0,225,0,0.4);
 }
 
 
 
 .navbar-inverse {
-  background-color: rgba(0,200,0,0.4);
+  background-color: rgba(0,225,0,0.4);
   color: #fff  ;
 }
 
 #logo:hover {
-  color: #008080;
+  color: #fff;
   text-decoration: none;
 }
 
@@ -125,6 +126,10 @@ p {
 /* footer */
 
 footer {
+  position:absolute;
+  bottom: 0;
+  width: 80%;
+  height: 100px;
   margin-top: 45px;
   padding-top: 5px;
   border-top: 1px solid #eaeaea;
@@ -133,10 +138,13 @@ footer {
 
 footer a {
   color: #555;
+  text-decoration: none; 
 }
 
+
 footer a:hover {
-  color: #222;
+  color: #87CEFA;
+  background-color: #fff;
 }
 
 footer small {
@@ -151,6 +159,7 @@ footer ul {
 footer ul li {
   float: left;
   margin-left: 10px;
+  color: #FFFF00;
 }
 
 
@@ -231,10 +240,33 @@ aside {
 
 .gravatar {
   float: left;
-  width: 150px;
-  height: 150px;
   margin-right: 10px;
 }
+
+
+#gravatarinnegofeed {
+  float: left;
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+}
+
+
+/* microposts */
+
+.negotiations {
+  list-style: none;
+  margin: 10px 0 0 0;
+
+  li {
+    padding: 10px 0;
+    border-top: 1px solid #e8e8e8;
+  }
+}
+.title {
+  display: block;
+}
+
 
 
 //### assets:precompileでglyphiconが表示されない不具合対応 ###

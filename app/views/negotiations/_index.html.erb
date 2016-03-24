@@ -1,0 +1,9 @@
+<% provide(:title, 'All your negotiations') %>
+
+
+<% if @negotiations.any? %>
+      <h3>(<%= @negotiations.count %>)</h3>
+      <ol class="negotiations">
+        <%= render @negotiations %>
+      </ol>
+<% end %>

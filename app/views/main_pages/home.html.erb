@@ -7,15 +7,16 @@
       </section>
       
       <section>
-      　　<%= render 'shared/driver_post_form' %>
+      　　<!-- 検索フォームの作成-->
       </section>
 
     </aside>
     
     <div class="col-md-8">
-      <h3>Driver</h3>
+      <h3><%= current_user.name %>さんの現在進行中の交渉</h3>
+      　　<%= render 'negotiations/index' %>
       
-    <!-- ここに登録されたDriverの一覧が表示される　-->
+
     
     </div>
     

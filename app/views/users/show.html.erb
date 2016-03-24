@@ -11,7 +11,13 @@
   </aside>
   
   <div class="col-md-8">
- 
+     <% if @user.driver_posts.any? %>
+       <h3>My Driver Posts </h3>
+        <ol class="driver_posts">
+         <%= @driver_post %>
+        </ol>
+    <% end %>
+  </div>
  
   </div>
 </div>
