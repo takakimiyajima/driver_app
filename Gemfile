@@ -29,6 +29,9 @@ gem 'jquery-rails'
 gem 'momentjs-rails'
 gem 'bootstrap3-datetimepicker-rails'
 
+#検索機能
+gem "ransack"
+
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 

@@ -7,7 +7,33 @@
       </section>
       
       <section>
-      　　<!-- 検索フォームの作成-->
+      　　<%# form_for の代わりに search_form_for を使うことで検索フォームを作成 %>
+          <%= search_form_for @q do |f| %>
+          
+            <%# start 特定の文字列で始まる商品名で検索 %>
+            <%= f.label :origin_cont, "出発地" %>
+            <%= f.search_field :origin_cont %>
+            <br />
+          
+            <%# cont 文字列が含まれる商品説明で検索（not_cont で含まれない商品説明） %>
+            <%= f.label :destination_cont, "目的地" %>
+            <%= f.search_field :destination_cont %>
+            <br />
+          
+            <%# 関連の名前で検索 Product.carrier.name %>
+            <%= f.label :departure_date_cont, "日程　" %>
+            <%= f.search_field :departure_date_cont %>
+            <br />
+          
+            <%# lt で特定の数値より下で検索（gt はより上、eq は同じ、gteqやlteqなどもできる） %>
+            <%= f.label :content_cont, "その他" %>
+            <%= f.search_field :content_cont %>
+            <br />
+          
+            <%# 検索ボタン %>
+            <%= f.submit %>
+          <% end %>
+          
       </section>
 
     </aside>

@@ -12,7 +12,7 @@ DriverApp::Application.routes.draw do
   
   root  'main_pages#home'
   match '/help', to: 'main_pages#help', via: 'get'
-  match '/language', to: 'main_pages#language', via: 'get' 
+  match '/language', to: 'main_pages#language', via: 'get'
   match '/about', to: 'main_pages#about', via: 'get'
   match '/contact', to: 'main_pages#contact', via: 'get'
   
