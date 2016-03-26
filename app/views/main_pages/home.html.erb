@@ -7,26 +7,43 @@
       </section>
       
       <section>
-          <%= form_tag({controller: :main_pages, action: :home}, class: "form-inline") do %>
-            <%= text_field_tag :origin, '', size: '100%', class: "form-control", placeholder: "keyword" %>
-            <%= button_tag(type: "submit", class: "btn btn-default") do %>
-            Search <i class="fa fa-search"></i>
-            <% end %>
+        <h2>各カテゴリーから検索する</h2>
+          <%= search_form_for @q, url: root_url do |f| %>
+          
+            <%= f.label :origin_cont, "出発地" %>
+            <%= f.search_field :origin_cont %>
+            <br />
+
+            <%= f.label :destination_cont, "目的地" %>
+            <%= f.search_field :destination_cont %>
+            <br />
+
+            <%= f.label :departure_date_cont, "日程　" %>
+            <%= f.search_field :departure_date_cont %>
+            <br />
+
+            <%= f.label :content_cont, "その他" %>
+            <%= f.search_field :content_cont %>
+            <br />
+
+            <%= f.submit %>
           <% end %>
           
           <% if @driver_posts.any? %>
             <table class="table table-hover">
               <thead>
                 <tr>
-                  <th class="col-xs-9">Message</th>
-                  <th class="col-xs-2">Repository</th>
-                  <th class="col-xs-1">SHA</th>
+                  <th class="col-xs-4">出発地</th>
+                  <th class="col-xs-4">目的地</th>
+                  <th class="col-xs-4">日時</th>
                 </tr>
               </thead>
               <tbody>
                 <% @driver_posts.each do |driver_post| %>
                 <tr>
                   <td><%= driver_post.origin %></td>
+                  <td><%= driver_post.destination %></td>
+                  <td><%= driver_post.departure_date %></td>
                 </tr>
                 <% end %>
               </tbody>
