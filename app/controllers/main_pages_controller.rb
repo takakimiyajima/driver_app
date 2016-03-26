@@ -1,8 +1,14 @@
 class MainPagesController < ApplicationController
   
   def home
-     @negotiations = current_user.negotiations_of_driver
-     @negotiations.concat(current_user.negotiations_of_hiker)
+    if signed_in?
+       @negotiations = current_user.negotiations_of_driver
+       @negotiations.concat(current_user.negotiations_of_hiker)
+     
+       @q = DriverPost.search(params[:q])
+       @driver_posts = @q.result(distinct: true)
+    end
+    
   end
 
   def help
