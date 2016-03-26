@@ -15,6 +15,7 @@ DriverApp::Application.routes.draw do
   match '/language', to: 'main_pages#language', via: 'get'
   match '/about', to: 'main_pages#about', via: 'get'
   match '/contact', to: 'main_pages#contact', via: 'get'
+  match '/home', to: 'main_pages#home', via: 'post'
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
