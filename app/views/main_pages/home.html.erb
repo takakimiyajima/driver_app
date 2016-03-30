@@ -17,16 +17,20 @@
             <%= f.label :destination_cont, "目的地" %>
             <%= f.search_field :destination_cont %>
             <br />
-
+            
+            <div class='input-group date datepicker'>
             <%= f.label :departure_date_cont, "日程　" %>
-            <%= f.search_field :departure_date_cont %>
-            <br />
+            <%= f.search_field :departure_date_cont, class: 'form-control'%>
+              <span class="input-group-addon">
+              <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+  　　        　</span>
+            </div> 
 
             <%= f.label :content_cont, "その他" %>
             <%= f.search_field :content_cont %>
             <br />
 
-            <%= f.submit %>
+            <%= f.submit '検索する'%>
           <% end %>
 
           <% if @driver_posts.any? %>
@@ -57,9 +61,6 @@
     <div class="col-md-8">
       <h3><%= current_user.name %>さんの現在進行中の交渉</h3>
       　　<%= render 'negotiations/index' %>
-      
-
-    
     </div>
     
   </div>

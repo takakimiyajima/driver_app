@@ -7,6 +7,7 @@ gem 'sprockets', '2.12.4'
 gem 'devise', '3.4.1'
 gem 'will_paginate', '3.0.4'
 gem 'will_paginate-bootstrap', '1.0.1'
+gem 'kaminari'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
@@ -28,6 +29,9 @@ gem 'jquery-rails'
 
 gem 'momentjs-rails'
 gem 'bootstrap3-datetimepicker-rails'
+
+#検索機能
+gem 'ransack'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'

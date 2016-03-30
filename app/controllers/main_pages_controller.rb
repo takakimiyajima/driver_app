@@ -4,6 +4,7 @@ class MainPagesController < ApplicationController
     if signed_in?
        @negotiations = current_user.negotiations_of_driver
        @negotiations.concat(current_user.negotiations_of_hiker)
+      # @negotiations = Negotiation.paginate(page: params[:page])
      
        @q = DriverPost.search(params[:q])
        @driver_posts = @q.result(distinct: true)

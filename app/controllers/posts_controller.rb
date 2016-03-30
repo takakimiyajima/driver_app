@@ -22,7 +22,7 @@ class PostsController < ApplicationController
      @post = @negotiation.posts.build(post_params)
      @post.user_id = current_user.id
 
-  respond_to do |format|
+   respond_to do |format|
       if @post.save
         format.html { redirect_to @negotiation, notice: '投稿されました。' }
         format.json { render json: @post, status: :created, location: @negotiation }
@@ -32,7 +32,11 @@ class PostsController < ApplicationController
         format.html { render "negotiations/show" }
         format.json { render json: @post.errors, status: :unprocessable_entity }
       end
-    end
+   end
+    
+      if @post.save
+        PostMailer.sent(@user).deliver # sentアクションにuserの情報をもたせます。
+      end
   end
 
   # DELETE /posts/1
