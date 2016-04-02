@@ -14,6 +14,8 @@ class NegotiationsController < ApplicationController
       session[:negotiation_id] = @negotiation.id
       @posts = @negotiation.posts
       @post = Post.new
+      session[:driver_id] = @negotiation.driver_id
+      session[:hiker_id] = @negotiation.hiker_id
   end
   
   def new

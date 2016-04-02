@@ -24,6 +24,14 @@ class PostsController < ApplicationController
 
    respond_to do |format|
       if @post.save
+        #メーラー
+        if current_user.id == Negotiation.find(@post.negotiation_id).driver_id
+           address = User.find(Negotiation.find(@post.negotiation_id).hiker_id).email
+        else
+           address = User.find(Negotiation.find(@post.negotiation_id).driver_id).email
+        end
+      PostMailer.sent(address, @post.content).deliver
+           
         format.html { redirect_to @negotiation, notice: '投稿されました。' }
         format.json { render json: @post, status: :created, location: @negotiation }
       else
@@ -33,10 +41,6 @@ class PostsController < ApplicationController
         format.json { render json: @post.errors, status: :unprocessable_entity }
       end
    end
-    
-      if @post.save
-        PostMailer.sent(@user).deliver # sentアクションにuserの情報をもたせます。
-      end
   end
 
   # DELETE /posts/1

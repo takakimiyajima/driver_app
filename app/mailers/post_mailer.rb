@@ -6,8 +6,11 @@ class PostMailer < ActionMailer::Base
   #
   #   en.post_mailer.sent.subject
   #
-  def sent(user)
-    @user = user
-    mail(to: @user.email, subject: "Thank you for your contact!")
+  def sent(address, postcontent)
+   # if Post.find_by(id: session[:post_id]).user_id
+       mail(to: address, subject: "Thank you for your contact!", body: postcontent, content_type: "text/html")
+   # else
+   #    mail(to: User.find_by(id: session[:driver_id]).email, subject: "Thank you for your contact!", body: "uhhhh", content_type: "text/html")
+   # end
   end
 end

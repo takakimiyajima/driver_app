@@ -6,11 +6,11 @@
 html {
   overflow-y: scroll;
 }
-
+/*
 body {
   padding-top: 60px;
 }
-
+*/
 section {
   overflow: auto;
 }
@@ -59,12 +59,13 @@ p {
 }
 
 
-/*　ログインしていない状況での角島背景    */
+/*　ログインしていない状況での角島背景  */
 #pic {
-    /* 画像を常に天地左右の中央に配置 */
-  background-position: center center;
-  width: 100%;
-  height: 100%;
+ text-align: center;
+}
+
+.dokoiku{
+   font-family :'Comic Sans MS','Hiragino Kaku Gothic Std','alba','Comic Sans MS','arial black' ;
 }
 /*
 .slideshow {
@@ -105,6 +106,8 @@ p {
   font-weight: bold;
   line-height: 1;
   background-color: rgba(0,225,0,0.4);
+  font-family:'Comic Sans MS', fantasy;
+  font-size: 250%;
 }
 
 
@@ -252,7 +255,7 @@ aside {
 }
 
 
-/* microposts */
+/* negotiations */
 
 .negotiations {
   list-style: none;
