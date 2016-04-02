@@ -1,28 +1,29 @@
 <% if signed_in? %>
   <div class="row">
     
-    <aside class="col-md-4">
+    <aside class="col-md-5">
       <section>
         <%= render 'shared/user_info' %>
       </section>
       
       <section>
-        <h2>各カテゴリーから検索する</h2>
+        <div class="jumbotron">
+        <div class="glyphicon glyphicon-search", id='searchDP'>各カテゴリーから検索する</div>
+         <!--p id='searchDP'>各カテゴリーから検索する</p-->
           <%= search_form_for @q, url: root_url do |f| %>
 
             <%= f.label :origin_cont, "出発地" %>
-            <%= f.search_field :origin_cont %>
-            <br />
-
+            <%= f.search_field :origin_cont, size:12 %>
+      
             <%= f.label :destination_cont, "目的地" %>
-            <%= f.search_field :destination_cont %>
+            <%= f.search_field :destination_cont, size:12 %>
             <br />
             
-            <div class='input-group date datepicker'>
-            <%= f.label :departure_date_cont, "日程　" %>
-            <%= f.search_field :departure_date_cont, class: 'form-control'%>
+            <%= f.label :departure_date_cont, "日程" %>
+            <div class='input-group date datepicker input-group-sm'>
+            <%= f.search_field :departure_date_cont, class: 'form-control', id: 'homedatepicker0' %>
               <span class="input-group-addon">
-              <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+              <span class="glyphicon glyphicon-calendar", id: 'homedatepicker1', aria-hidden="true"></span>
   　　        　</span>
             </div> 
 
@@ -30,8 +31,9 @@
             <%= f.search_field :content_cont %>
             <br />
 
-            <%= f.submit '検索する'%>
-          <% end %>
+            <%= f.submit '検索', class: "btn btn-primary btn-lg", id: "searchDriverPost"%>
+           <% end %>
+           </div>
 
           <% if @driver_posts.any? %>
             <table class="table table-hover">
@@ -58,7 +60,7 @@
 
     </aside>
     
-    <div class="col-md-8">
+    <div class="col-md-7">
       <h3><%= current_user.name %>さんの現在進行中の交渉</h3>
       　　<%= render 'negotiations/index' %>
     </div>
