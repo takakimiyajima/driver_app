@@ -1,3 +1,9 @@
+$(document).ready(function(){
+  $('.bxslider').bxSlider();
+});
+
+
+/*
 var setElm     = $('.slideshow'),
     fadeSpeed  = 1000,
     switchDelay= 5000;
@@ -35,4 +41,4 @@ $(window).load(function(){
     }, switchDelay);
   });
 });
-       
+       */

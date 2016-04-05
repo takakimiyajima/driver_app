@@ -19,12 +19,12 @@
             <%= f.search_field :destination_cont, size:12 %>
             <br />
             
-            <%= f.label :departure_date_cont, "日程" %>
+            <%= f.label :departure_date_cont, "日程　  ", class: 'nittei'%>
             <div class='input-group date datepicker input-group-sm'>
             <%= f.search_field :departure_date_cont, class: 'form-control', id: 'homedatepicker0' %>
-              <span class="input-group-addon">
-              <span class="glyphicon glyphicon-calendar", id: 'homedatepicker1', aria-hidden="true"></span>
-  　　        　</span>
+              <span style="float:left", class="input-group-addon", id: 'homedatepicker1'>
+               <span class="glyphicon glyphicon-calendar", id: 'homedatepicker2', aria-hidden="true"></span>
+              </span>
             </div> 
 
             <%= f.label :content_cont, "その他" %>
@@ -68,12 +68,16 @@
   </div>
 <% else %>
 
-  <body style="background-image:url(<%= asset_path "tsuno.jpg" %>)" />
+  <body id="pic", style="background-image:url(<%= asset_path "tsuno.jpg" %>)" />
   
     <h1 class="dokoiku">さあ、どこ行く？</h1>
-  
-    <%= link_to "Sign up now!", new_user_registration_path , class: "btn btn-lg btn-primary" %>
     
+    <section class="buttons">
+        <svg>
+         <rect x="0" y="0" fill="none" width="100%" height="100%"/>
+        </svg>
+         <%= link_to "Sign up", new_user_registration_path , class: "btn btn-2", id: 'word0' %>
+    </section>
   </body>
 
 <% end %>

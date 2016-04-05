@@ -1,4 +1,6 @@
 @import "bootstrap";
+@import url('http://fonts.googleapis.com/css?family=Roboto:400,100,900');
+
 
 
 /* universal */
@@ -6,11 +8,11 @@
 html {
   overflow-y: scroll;
 }
-/*
+
 body {
-  padding-top: 60px;
+      /*ヘッダーを固定した時に使う   padding-top: 60px;   */
 }
-*/
+
 section {
   overflow: auto;
 }
@@ -56,17 +58,10 @@ h2 {
 p {
   font-size: 1.1em;
   line-height: 1.7em;
+  color: #999;
 }
 
 
-/*　ログインしていない状況での角島背景  */
-#pic {
- text-align: center;
-}
-
-.dokoiku{
-   font-family :'Comic Sans MS','Hiragino Kaku Gothic Std','alba','Comic Sans MS','arial black' ;
-}
 /*
 .slideshow {
   margin: 20px auto 30px auto;
@@ -99,13 +94,13 @@ p {
   float: left;
   margin-right: 10px;
   font-size: 1.7em;
-  color: #000 ;
+  color: #EEEEEE;
   text-transform: uppercase;
   letter-spacing: -1px;
   padding-top: 12px;
   font-weight: bold;
   line-height: 1;
-  background-color: rgba(0,225,0,0.4);
+
   font-family:'Comic Sans MS', fantasy;
   font-size: 250%;
 }
@@ -113,16 +108,19 @@ p {
 
 
 .navbar-inverse {
-  background-color: rgba(0,225,0,0.4);
-  color: #fff  ;
+  background-color: #000;
 }
 
 #logo:hover {
   color: #fff;
-  text-decoration: none;
+
 }
 
 
+li {
+  border-left: 1px double #fff; /* 区切り線 */
+  border-right: 1px double #fff;
+}
 
 
 
@@ -131,12 +129,15 @@ p {
 footer {
   position:absolute;
   bottom: 0;
-  width: 80%;
+  width: 83%;
   height: 100px;
   margin-top: 45px;
   padding-top: 5px;
   border-top: 1px solid #eaeaea;
-  color: #999;
+}
+
+#footerword{
+  color: #000000;
 }
 
 footer a {
@@ -270,8 +271,13 @@ aside {
   display: block;
 }
 
-/* search & homedatepicker */
+/* search & homedatepicker 【home.html.erb】*/
+.jumbotron {
+  background-color: #009999;
+}
+
 #searchDP{
+  font-weight: 200;
   margin-bottom: 10%;
   padding-bottom: 0%;
   font-size: 1.8em;
@@ -279,14 +285,121 @@ aside {
   
 }
 
+.nittei{
+  float: left
+}
+
 #homedatepicker0{
-  width: 60%;
+  width: 70%;
 }
 
 #homedatepicker1{
-  margin: 0px auto; 
+  width: 100%;
+}
+
+#homedatepicker2{
+  width: 100%;
 }
 
 #searchDriverPost{
   float: right;
+}
+
+
+
+
+
+/* sign up now*/
+
+
+//colors
+$red: #E1332D;
+$white: #fff;
+
+.buttons {
+  display: table;
+  height: 100%;
+  width: 100%;
+}
+
+
+.dokoiku{
+   font-family :'Comic Sans MS','Hiragino Kaku Gothic Std','alba','Comic Sans MS','arial black';
+   margin: 50px 0 0 0;
+   font-size:50px;
+   color: #fff;
+}
+
+#pic{
+  background-position: center center; 
+  background-repeat: no-repeat;
+  background-attachment: fixed; 
+}
+
+
+.btn {
+  color: #fff;
+  cursor: pointer; /*ブラウザ上のカーソルがどう表示されるか*/
+  display: block;  /**/
+  font-size:30px;
+  font-weight: 400;
+  line-height: 45px;  /*行の高さを指定する*/
+  margin: 0 auto;
+  max-width: 160px; 
+  
+  text-decoration: none;
+  text-transform: uppercase;
+
+  width: 100%;
+  text-align: center;
+  
+  &:hover { text-decoration: none; }
+  
+}
+
+.btn-2 {
+    letter-spacing: 0;
+    font-size:20px;
+    border-color: $red;
+    background-color:rgba(0,0,0,0.65);
+}
+
+#word0 {
+  color: $red;
+  
+}
+#word0:hover {
+  color: #fff;
+}
+
+.btn-2:hover,
+.btn-2:active {
+  letter-spacing: 5px;
+}
+
+.btn-2:after,
+.btn-2:before {
+  backface-visibility: hidden;
+  border: 1px solid rgba(#fff, 0);
+  bottom: 0px;
+  content: " ";
+  display: block;
+  margin: 0 auto;
+  position: relative;
+  transition: all 280ms ease-in-out;
+  width: 0;
+}
+
+.btn-2:hover:after,
+.btn-2:hover:before {
+  backface-visibility: hidden;
+  border-color: #fff;
+  transition: width 350ms ease-in-out;
+  width: 70%;
+}
+
+.btn-2:hover:before {
+  bottom: auto;
+  top: 0;
+  width: 70%;
 }
