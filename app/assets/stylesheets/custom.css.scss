@@ -117,6 +117,7 @@ p {
 }
 
 
+/*ヘッダーのリンクに区切り線をつける*/
 li {
   border-left: 1px double #fff; /* 区切り線 */
   border-right: 1px double #fff;
@@ -337,11 +338,13 @@ $white: #fff;
 }
 
 
-.btn {
-  color: #fff;
+
+
+#word0 {
+  color: $red;
   cursor: pointer; /*ブラウザ上のカーソルがどう表示されるか*/
   display: block;  /**/
-  font-size:30px;
+  font-size:20px;
   font-weight: 400;
   line-height: 45px;  /*行の高さを指定する*/
   margin: 0 auto;
@@ -353,24 +356,20 @@ $white: #fff;
   width: 100%;
   text-align: center;
   
-  &:hover { text-decoration: none; }
-  
+  &:hover { text-decoration: none;
+            color: #fff;
+    
+  }
 }
 
 .btn-2 {
     letter-spacing: 0;
-    font-size:20px;
+    font-size:10px;
     border-color: $red;
     background-color:rgba(0,0,0,0.65);
 }
 
-#word0 {
-  color: $red;
-  
-}
-#word0:hover {
-  color: #fff;
-}
+
 
 .btn-2:hover,
 .btn-2:active {
