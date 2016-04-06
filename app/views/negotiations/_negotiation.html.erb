@@ -1,3 +1,5 @@
 <li>
   <span class="title"><%= negotiation.title %></span>
+  <%= link_to "delete", negotiation, method: :delete,
+                                     data: { confirm: "You sure?" } %>
 </li>

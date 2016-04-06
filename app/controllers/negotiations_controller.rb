@@ -1,9 +1,7 @@
 class NegotiationsController < ApplicationController
+   before_action :authenticate_user!
 
   def index
-     #@negotiations = Negotiation.all
-     #@negotiations = Negotiation.where(hiker_id: current_user.id)
-     #@negotiations.concat(Negotiation.where(driver_id: current_user.id))
      @negotiations = current_user.negotiations_of_driver
      @negotiations.concat(current_user.negotiations_of_hiker)
   end
@@ -43,9 +41,11 @@ class NegotiationsController < ApplicationController
       end
  
   end
+  
+  def destroy
+    @negotiation = Negotiation.find(params[:id])
+    @negotiation.destroy
+    redirect_to root_url
+  end
  
-
- 
-
-
 end
