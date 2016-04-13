@@ -120,6 +120,8 @@ p {
 /*ヘッダーのリンクに区切り線をつける*/
 li {
   border-left: 1px double #fff; /* 区切り線 */
+}
+#fat-menu{
   border-right: 1px double #fff;
 }
 
@@ -148,7 +150,7 @@ footer a {
 
 footer a:hover {
   color: #87CEFA;
-  background-color: #fff;
+  background-color: transparent;
 }
 
 footer small {
@@ -256,6 +258,10 @@ aside {
 }
 
 
+
+
+
+
 /* negotiations */
 
 .negotiations {
@@ -304,6 +310,11 @@ aside {
 #searchDriverPost{
   float: right;
 }
+
+
+
+
+
 
 
 
@@ -400,4 +411,68 @@ $white: #fff;
   bottom: auto;
   top: 0;
   width: 70%;
+}
+
+
+
+
+/*ホーム画面*/
+#homecontent{
+  
+}
+
+
+/*　negotiation 右側ホーム画面　*/
+
+.yaritori0{
+    background: -moz-linear-gradient(top,#FFF 0%,#E6E6E6);
+    background: -webkit-gradient(linear, left top, left bottom, from(#FFF), to(#E6E6E6));
+    border-radius: 20px;
+    color: #000;
+    -moz-box-shadow: inset 1px 1px 1px rgba(000,000,000,0.3);
+    -webkit-box-shadow: inset 1px 1px 1px rgba(000,000,000,0.3);
+    width: 130px;
+    margin-left: 350px;
+    padding: 5px 0;
+}
+.yaritori0:hover {
+        color: #CC0000;
+        background-color: transparent;
+        text-decoration: none;
+}
+
+.yaritori1 {
+        color: #000;
+        background-color: transparent;
+        text-decoration: none;
+        margin-left: 25px;
+}
+
+
+/*　negotiation/showのポスト　吹き出し　*/
+
+
+.bubble {
+ display:inline-block;
+ position: relative;
+ padding:1em;
+ border-radius:5px;
+ color: #fff;
+ background: #00BB00;
+ margin-left: 15px;
+}
+.bubble:after {
+ position: absolute;
+ content: " ";
+ height: 0;
+ width: 0;
+}
+
+
+.bubble-left:after {
+ right: 100%;
+ top: 50%;
+ border:10px solid transparent;
+ border-right:15px solid #00BB00;
+ margin-top: -10px;
 }

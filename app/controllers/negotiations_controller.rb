@@ -12,8 +12,7 @@ class NegotiationsController < ApplicationController
       session[:negotiation_id] = @negotiation.id
       @posts = @negotiation.posts
       @post = Post.new
-      session[:driver_id] = @negotiation.driver_id
-      session[:hiker_id] = @negotiation.hiker_id
+
   end
   
   def new
@@ -25,13 +24,11 @@ class NegotiationsController < ApplicationController
       @negotiation.driver_post_id = session[:driver_post_id]
       @negotiation.driver_id = session[:driver_id]
       @negotiation.hiker_id = current_user.id
-      driver = User.find_by(id: session[:driver_id]).name
-      hiker = current_user.name
+      #driver = User.find_by(id: session[:driver_id]).name
+      #hiker = current_user.name
       title = "出発地:" + session[:origin]\
          + " 目的地: " + session[:destination]\
-         + " 出発日: " + session[:departure_date]\
-         + " ドライバー:" + driver\
-         + " ハイカー:" + hiker
+         + " 出発日: " + session[:departure_date]
       @negotiation.title = title
       
       

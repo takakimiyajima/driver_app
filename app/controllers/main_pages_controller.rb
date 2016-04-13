@@ -2,8 +2,9 @@ class MainPagesController < ApplicationController
   
   def home
     if signed_in?
-       @negotiations = current_user.negotiations_of_driver
-       @negotiations.concat(current_user.negotiations_of_hiker)
+        @negotiations = current_user.negotiations_of_driver+current_user.negotiations_of_hiker
+       #@negotiations = current_user.negotiations_of_driver
+       #@negotiations.concat(current_user.negotiations_of_hiker)
       # @negotiations = Negotiation.paginate(page: params[:page])
      
        @q = DriverPost.search(params[:q])

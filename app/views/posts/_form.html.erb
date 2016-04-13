@@ -33,7 +33,7 @@
           <span>
           <%= link_to gravatar_for(current_user), current_user, size: 10 %> <%= link_to User.find(post.user_id).name, current_user %>
           </span>
-          <div class="post-body">
+          <div class="post-body bubble bubble-left">
             <%= post.content %>
           </div>
           <div class="post-footer">

@@ -2,7 +2,7 @@
 
 
 <% if @negotiations.any? %>
-      <h3>(<%= @negotiations.count %>)</h3>
+      <h3><%= current_user.name %>さんの交渉中コンテンツ(<%= @negotiations.count %>)</h3>
       <ol class="negotiations">
         <%= render @negotiations %>
       </ol>

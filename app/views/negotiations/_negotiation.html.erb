@@ -1,5 +1,10 @@
-<li>
-  <span class="title"><%= negotiation.title %></span>
-  <%= link_to "delete", negotiation, method: :delete,
-                                     data: { confirm: "You sure?" } %>
+<li class="panel panel-default">
+     <span class="panel-heading">
+       <%= link_to User.find(negotiation.driver_id).name, current_user, class: 'panel-title warning'%>さんと交渉中
+     </span>
+     <div class="panel-body">
+      <%= negotiation.title %>
+      <%= link_to "　交渉の続きはこちら▶︎　", negotiation, class: 'yaritori0'%> 
+      <%= link_to "削除", negotiation, method: :delete, data: { confirm: "本当にいいですか？" }, class: 'yaritori1'%>
+     </div>
 </li>
