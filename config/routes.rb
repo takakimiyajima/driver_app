@@ -1,6 +1,7 @@
 DriverApp::Application.routes.draw do
 
 
+  get "contacts/new"
   devise_for :users, :controllers => {
     :registrations => "registrations"
   }
@@ -14,7 +15,8 @@ DriverApp::Application.routes.draw do
   match '/help', to: 'main_pages#help', via: 'get'
   match '/language', to: 'main_pages#language', via: 'get' 
   match '/about', to: 'main_pages#about', via: 'get'
-  match '/contact', to: 'main_pages#contact', via: 'get'
+  #match '/contact', to: 'main_pages#contact', via: 'get'
+  resources :contacts, only: [:new, :create]
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
