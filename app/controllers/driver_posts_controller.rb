@@ -1,10 +1,17 @@
 class DriverPostsController < ApplicationController
   before_action :authenticate_user!
-  before_action :correct_user,   only: :destroy
+  before_action :correct_user, only: [:edit, :update, :destroy]
   
   
   def new
-      @driver_post = current_user.driver_posts.build  if signed_in?
+    @driver_post = current_user.driver_posts.build  if signed_in?
+  end
+  
+  def edit
+    @driver_post = DriverPost.find(params[:id])
+  end  
+  
+  def update
   end
   
   

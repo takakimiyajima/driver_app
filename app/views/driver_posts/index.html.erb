@@ -3,7 +3,7 @@
 
 
 <ul class="driver_posts">
-   <p>出発地 目的地 出発日時  備考欄</p>
+  <p>出発地 目的地 出発日時  備考欄</p>
    <% @driver_posts.each do |driver_post| %>
    <li>
     <%= link_to driver_post.origin, driver_post %>
@@ -12,11 +12,10 @@
     <%= link_to driver_post.content, driver_post %>
    　 
    　 <% if current_user == driver_post.user %>
-      <%= link_to "削除", driver_post, method: :delete,
+         <%= link_to "編集", edit_driver_post_path(driver_post.id) %>
+         <%= link_to "削除", driver_post, method: :delete,
                                   data: { confirm: "You sure?" } %>
-      <% end %>
-      
-    <% end %>
-    </li>
-
+       <% end %>
+   </li>
+   <% end %>
 </ul>

@@ -6,7 +6,7 @@ DriverApp::Application.routes.draw do
     :registrations => "registrations"
   }
   resources :users, only: [:show, :index, :destroy]
-  resources :driver_posts, only: [:show, :index, :destroy, :create, :new]
+  resources :driver_posts, only: [:show, :index, :destroy, :create, :new, :edit]
   
   resources :negotiations 
   resources :posts, :only => [:create, :destroy]
